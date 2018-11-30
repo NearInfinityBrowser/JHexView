@@ -1,7 +1,12 @@
+/*
+ * Modified Oct. 2014 by argent77
+ * - added single argument to dataChanged() prototype
+ */
 package tv.porst.jhexview;
 
-public interface IDataChangedListener {
+import java.util.EventListener;
 
-	void dataChanged();
-
+public interface IDataChangedListener extends EventListener
+{
+  void dataChanged(DataChangedEvent event);
 }

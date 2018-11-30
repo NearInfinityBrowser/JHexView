@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JHexView" default="binary" basedir=".">
+  <property name="jar.file"   value="jhexview.jar" />
+  <property name="build.path" value="build" />
+  <property name="src.path"   value="src" />
+
+  <target name="binary">
+    <mkdir dir="${build.path}"/>
+    <javac srcdir="${src.path}"
+           destdir="${build.path}"
+           source="1.8"
+           target="1.8"
+           deprecation="true"
+           debug="false"
+           debuglevel="lines,vars,source"
+           includeantruntime="false">
+      <!--<compilerarg value="-Xlint:unchecked"/>-->
+    </javac>
+
+    <copy todir="${build.path}">
+      <fileset dir="${src.path}" excludes="**/*.java"/>
+    </copy>
+
+    <jar destfile="${jar.file}"
+         basedir="${build.path}"
+         includes="**/*" />
+  </target>
+
+  <target name="clean">
+    <delete dir="${build.path}"/>
+    <delete file="${jar.file}"/>
+    <delete>
+      <fileset dir="${src.path}" includes="**/*.class"/>
+    </delete>
+  </target>
+</project>

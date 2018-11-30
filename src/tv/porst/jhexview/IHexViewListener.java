@@ -1,7 +1,12 @@
+/*
+ * Modified Oct. 2014 by argent77
+ * - replaced arguments with single HexViewEvent argument
+ */
 package tv.porst.jhexview;
 
-public interface IHexViewListener {
+import java.util.EventListener;
 
-	void selectionChanged(long start, long length);
-
+public interface IHexViewListener extends EventListener
+{
+  void stateChanged(HexViewEvent event);
 }
